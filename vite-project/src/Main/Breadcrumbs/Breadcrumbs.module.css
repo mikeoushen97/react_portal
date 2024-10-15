@@ -1,0 +1,37 @@
+.breadcrumbs {
+    grid-area: breadcrumbs;
+    height: 42px;
+    margin: 32px 0 20px 0;
+    border-bottom: 1px solid #E1E1E1;
+
+    & ul {
+        display: flex;
+        text-transform: capitalize;
+        margin-bottom: 8px;
+    }
+
+    & span {
+        line-height: 32px;
+        margin: 0 10px;
+    }
+
+    &>ul>li {
+        line-height: 32px;
+
+    }
+
+    & a {
+        color: var(--text-grey333);
+    }
+
+    & li:last-child a {
+        color: var(--text-grey333);
+        opacity: 50%;
+    }
+}
+
+@media screen and (width < 1240px) {
+    .breadcrumbs {
+        display: none;
+    }
+}

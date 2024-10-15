@@ -1,0 +1,350 @@
+* {
+    user-select: none;
+}
+
+.header__log-in,
+.header__hamburger,
+.header__search #search-button,
+.header__log-in {
+    &:hover {
+        opacity: 70%;
+        transition: 0.15s;
+    }
+}
+
+
+.header__top {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 0px 10px;
+    height: 82px;
+}
+
+.header__weather {
+    justify-self: start;
+}
+
+.header__log-in {
+    justify-self: end;
+}
+
+.header__weather {
+    display: flex;
+    gap: 30px;
+}
+
+.header:not(.header__logo) {
+    color: var(--text-grey)
+}
+
+/* Контейнер для кастомного селекта */
+.header__dropdown {
+    position: relative;
+    color: var(--text-grey);
+}
+
+/* Триггер выпадающего списка */
+.header__dropdown-trigger {
+    background-color: transparent;
+    display: flex;
+    padding: 10px 0;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 4px;
+    position: relative;
+    line-height: 1rem;
+}
+
+.header__dropdown-trigger {
+    &::after {
+        content: url(/icons/down_icon.svg);
+        width: 18px;
+        height: 14px;
+        margin: auto 0 3px 10px;
+    }
+}
+
+/* Стилизация выпадающего списка */
+.header__city-list {
+    display: none;
+    /* По умолчанию скрыто */
+    position: absolute;
+    width: fit-content;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 150px;
+    overflow-y: auto;
+    /* Скролл при большом количестве опций */
+    z-index: 100;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    animation: dropdownActive 0.25s;
+    border: none;
+}
+
+@keyframes dropdownActive {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 100;
+    }
+
+    ;
+}
+
+/* Стилизация опций */
+.header__list-item {
+    padding: 2px;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.header__list-item:hover {
+    opacity: 50%;
+}
+
+/* Показать опции, когда открыто */
+.header__dropdown.active .header__city-list {
+    display: block;
+}
+
+.header__dropdown-trigger,
+.header__city-list {
+    user-select: none;
+}
+
+.header__temperature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header__temperature-icon {
+    height: 34px;
+    width: auto;
+}
+
+.header__log-in {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header__logo,
+.header__mobile-logo {
+    font-size: 1.16rem;
+    font-weight: 900;
+    color: #000;
+    justify-self: center;
+}
+
+.header__mobile-logo {
+    display: none;
+}
+
+.header__navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 12px -5px rgba(0, 0, 0, 0.15);
+    height: 82px;
+    overflow: hidden;
+}
+
+.header__menu {
+    position: relative;
+    display: flex;
+    gap: 50px;
+    transition: 0.15s;
+}
+
+#close-hamburger {
+    display: none;
+    width: 16px;
+    height: 16px;
+    background: url(/icons/close_icon.svg);
+    background-size: contain;
+    position: absolute;
+    top: 15px;
+    right: 0;
+    background: red;
+}
+
+.header__menu li {
+    position: relative;
+}
+
+.header__menu li a {
+    color: var(--text-grey);
+    line-height: 2.13rem;
+    display: block;
+    padding: 5px;
+}
+
+.header__menu {
+    border-top: 1px solid var(--border-grey);
+    border-bottom: 1px solid var(--border-grey);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & li a::after {
+        content: '';
+        position: absolute;
+        top: 59px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--accent-blue);
+        opacity: 0;
+        transform: translateY(10px);
+        transition: 0.08s ease-out;
+    }
+}
+
+
+
+.header__menu li a {
+    position: relative;
+
+    &:hover {
+        color: var(--text-grey333);
+    }
+
+    &:hover::after {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+}
+
+
+.header__hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    border: 1px solid;
+    height: 100%;
+    width: 100px;
+    border: 1px solid var(--border-grey);
+
+    & span {
+        background-color: #999999;
+        height: 2px;
+        width: 20px;
+    }
+}
+
+#close-hamburger {
+    display: none;
+}
+
+.header__search {
+    height: 20px;
+    width: 20px;
+    position: relative;
+    padding: 10px 20px;
+}
+
+.header__search-button {
+    width: 100px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    cursor: pointer;
+    border: 1px solid var(--border-grey);
+
+    &:hover {
+        opacity: 70%;
+    }
+
+    & img {
+        width: 22px;
+    }
+}
+
+/* ===Медиа запросы=== */
+
+@media screen and (max-width: 1240px) {
+    .header__navigation {
+        height: 70px;
+    }
+
+    .header__hamburger,
+    .header__search-button {
+        border: none;
+    }
+
+    .header__navigation {
+        margin-top: 0;
+    }
+
+    .header__mobile-logo {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 70px;
+    }
+
+    .header__top {
+        display: none;
+    }
+
+    .header__menu {
+        position: fixed;
+        display: flex;
+        visibility: hidden;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 500px;
+        height: 100vh;
+        background: #fff;
+        top: 0;
+        left: 0;
+        padding: 60px 20px 0 20px;
+        transition: 0.2s;
+        transform: translateX(-100%);
+    }
+
+    .header__menu.mobile-active {
+        visibility: visible;
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+    .header__menu li {
+        text-align: center;
+    }
+
+    .header__menu li::after {
+        top: 34px;
+        width: 0%;
+        transform: translate(0);
+        transition: 0.15s ease-out;
+    }
+
+    .header__menu li:hover::after {
+        width: 100%;
+    }
+
+    .header__hamburger {
+        pointer-events: all;
+    }
+
+    #close-hamburger {
+        display: block;
+    }
+}

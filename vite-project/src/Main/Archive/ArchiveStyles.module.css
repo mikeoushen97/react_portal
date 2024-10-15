@@ -1,0 +1,7 @@
+.archivePage {
+    &>h2 {
+        margin-bottom: 20px;
+        font-weight: 500;
+        color: var(--text-grey333);
+    }
+}

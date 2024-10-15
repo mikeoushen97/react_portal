@@ -1,0 +1,13 @@
+.wheatherWidget {
+    max-height: 405px;
+    max-width: 266px;
+    background: #FFF;
+}
+
+.topLine {
+    border-bottom: 1px solid var(--element-border);
+}
+
+.bottomLine {
+    border-top: 1px solid var(--element-border);
+}

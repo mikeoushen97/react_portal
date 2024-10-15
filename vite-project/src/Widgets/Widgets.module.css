@@ -1,0 +1,16 @@
+.sideWidgets {
+    grid-area: widgets;
+    max-width: 266px;
+    padding-top: 45px;
+
+    &>div {
+        width: 200px;
+    }
+
+}
+
+@media screen and (width < 1240px) {
+    .sideWidgets {
+        display: none
+    }
+}
